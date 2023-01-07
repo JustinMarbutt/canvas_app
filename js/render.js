@@ -1,3 +1,10 @@
+// Author: Justin Marbutt
+// This code was adapted from a tutorial by Mt. Ford Studios. I've edited the code but used
+// some of the origional source. Espcially the POINT3D and rotation functions.
+// Origional Source: https://drive.google.com/file/d/1JYGqFOyOmspxPdsfQe46a5yPqbbPM70z/view
+// Origional Author: Mt. Ford Studios (https://twitter.com/MtFordStudios) (youtube.com/MtFordStudios)
+// Video Link: https://www.youtube.com/watch?v=gx_Sx5FeTAk
+
 const COLOR_BG = "#343a40";
 const COLOR_STROKE = "#0aa0f6";
 const ROTATION_SPEED = 0.04;
