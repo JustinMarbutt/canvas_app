@@ -45,5 +45,5 @@ function drawTriforce(x, y, context) {
     // requestAnimationFrame(drawTriforce(originX, originY, context));
 }
 
-// drawTriforce(0, 0, context);
-requestAnimationFrame(drawTriforce(originX, originY, context))
+drawTriforce(0, 0, context);
+// requestAnimationFrame(drawTriforce(originX, originY, context))
