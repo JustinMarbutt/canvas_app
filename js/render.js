@@ -1,7 +1,5 @@
 const COLOR_BG = "#343a40";
 const COLOR_STROKE = "#0aa0f6";
-// const SPEED_X = 0.04;
-// const SPEED_Y = 0.04;
 const ROTATION_SPEED = 0.04;
 const POINT3D = function(x, y, z) { this.x = x; this.y = y; this.z = z; };
 
@@ -96,7 +94,7 @@ var shapes = [
         x: cx,
         y: cy,
         z: cz,
-        xSpeed: 0,//0.4,
+        xSpeed: 0,
         ySpeed: -0.4,
         rotSpeed: 0.045,
         getVerts: cubeVertices,
