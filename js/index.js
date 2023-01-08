@@ -41,7 +41,7 @@ function drawTriforce(x, y, scale, context) {
         new POINT2D(x + 205 * scale, y + 70 * scale)
     ], context);
 
-    // the triangle 3
+    // the left bottom triangle
     drawTriangle([
         new POINT2D(x + 45 * scale, y + 120 * scale),
         new POINT2D(x + 145 * scale, y + 120 * scale),
