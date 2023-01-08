@@ -2,9 +2,25 @@ var canvasElement = document.querySelector("#canvas");
 var context = canvasElement.getContext("2d");
 var originX = 0;
 var originY = 0;
+var POINT2D = function(x, y) {this.x = x; this.y = y;};
 
-function drawTriforce(x, y, context) {
-    // ctx.fillRect(0, 0, 100, 100);
+function drawTriangle(triangleVerts, context) {
+    var fistVert = triangleVerts.pop();
+
+    context.beginPath();
+    context.moveTo(fistVert.x, fistVert.y);
+
+    triangleVerts.forEach(function(v) {
+        context.lineTo(v.x, v.y);
+    });
+
+    context.closePath();
+    context.stroke();
+    context.fill();
+    return true;
+}
+
+function drawTriforce(x, y, scale, context) {
     // the fill color
     context.fillStyle = "#FFCC00";
     // the outline
@@ -12,38 +28,25 @@ function drawTriforce(x, y, context) {
     context.strokeStyle = '#666666';
 
     // the top triangle
-    context.beginPath();
-    context.moveTo(x + 100, y + 65);
-    context.lineTo(x + 200, y + 65);
-    context.lineTo(x + 150, y + 15);
+    drawTriangle([
+        new POINT2D(x + 100 * scale, y + 65 * scale),
+        new POINT2D(x + 200 * scale, y + 65 * scale),
+        new POINT2D(x + 150 * scale, y + 15 * scale)
+    ], context);
 
-    context.closePath();
-    context.stroke();
-    context.fill();
-
-    // the triangle 2
-    context.beginPath();
-    context.moveTo(x + 155, y + 120);
-    context.lineTo(x + 255, y + 120);
-    context.lineTo(x + 205, y + 70);
-
-    context.closePath();
-    context.stroke();
-    context.fill();
+    // the right bottom triangle
+    drawTriangle([
+        new POINT2D(x + 155 * scale, y + 120 * scale),
+        new POINT2D(x + 255 * scale, y + 120 * scale),
+        new POINT2D(x + 205 * scale, y + 70 * scale)
+    ], context);
 
     // the triangle 3
-    context.beginPath();
-    context.moveTo(x + 45, y + 120);
-    context.lineTo(x + 145, y + 120);
-    context.lineTo(x + 95, y + 70);
-
-    context.closePath();
-    context.stroke();
-    context.fill();
-    // originX += 0.01;
-    // originY += 0.01;
-    // requestAnimationFrame(drawTriforce(originX, originY, context));
+    drawTriangle([
+        new POINT2D(x + 45 * scale, y + 120 * scale),
+        new POINT2D(x + 145 * scale, y + 120 * scale),
+        new POINT2D(x + 95 * scale, y + 70 * scale)
+    ], context);
 }
 
-drawTriforce(0, 0, context);
-// requestAnimationFrame(drawTriforce(originX, originY, context))
+drawTriforce(0, 0, 1, context);
