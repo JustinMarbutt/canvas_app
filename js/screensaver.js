@@ -9,10 +9,9 @@ var x = 10;
 var y = 10;
 var shapeWidth = 100;
 var shapeHeight = 100;
-var xDir = true;
-var yDir = true;
 var colorIndex = 0;
-var moveSpeed = 3;
+var moveSpeedX = 3;
+var moveSpeedY = 3;
 
 var canvas = document.getElementById("canvas");
 var ctx = canvas.getContext("2d");
@@ -28,41 +27,24 @@ ctx.fillStyle = colors[colorIndex];
 colorIndex++;
 
 function draw() {
-    if (xDir) {
-        if (x < canvas.width - shapeWidth) {
-            x += moveSpeed;
-        } else {
-            xDir = !xDir;
-            colorIndex++;
-            ctx.fillStyle = colors[colorIndex % 3];
-        }
-    } else {
-        if(x > 0) {
-            x -= moveSpeed;
-        } else {
-            xDir = !xDir;
-            colorIndex++;
-            ctx.fillStyle = colors[colorIndex % 3];
-        }
+    // boundry check x direction or width
+    if ((moveSpeedX > 0 && x > canvas.width - shapeWidth) || (moveSpeedX < 0 && x < 0)) {
+        moveSpeedX = moveSpeedX * -1;
+        colorIndex++;
+        ctx.fillStyle = colors[colorIndex % 3];
     }
-    if (yDir) {
-        if (y < canvas.height - shapeWidth) {
-            y += moveSpeed;
-        } else {
-            yDir = !yDir;
-            colorIndex++;
-            ctx.fillStyle = colors[colorIndex % 3];
-        }
-    } else {
-        if(y > 0) {
-            y -= moveSpeed;
-        } else {
-            yDir = !yDir;
-            colorIndex++;
-            ctx.fillStyle = colors[colorIndex % 3];
-        }
+    // boundry check y direction or height
+    if ((moveSpeedY > 0 && y > canvas.height - shapeHeight) || (moveSpeedY < 0 && y < 0)) {
+        moveSpeedY = moveSpeedY * -1;
+        colorIndex++;
+        ctx.fillStyle = colors[colorIndex % 3];
     }
 
+    // move object
+    y += moveSpeedY;
+    x += moveSpeedX;
+
+    // clear and draw
     ctx.clearRect(0, 0, canvas.width, canvas.height);
     ctx.fillRect(x, y, shapeWidth, shapeWidth);
 }
