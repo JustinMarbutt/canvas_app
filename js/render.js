@@ -1,6 +1,5 @@
 // Author: Justin Marbutt
-// This code was adapted from a tutorial by Mt. Ford Studios. I've edited the code but used
-// some of the origional source. Espcially the POINT3D and rotation functions.
+// This code was adapted from a tutorial by Mt. Ford Studios.
 // Origional Source: https://drive.google.com/file/d/1JYGqFOyOmspxPdsfQe46a5yPqbbPM70z/view
 // Origional Author: Mt. Ford Studios (https://twitter.com/MtFordStudios) (youtube.com/MtFordStudios)
 // Video Link: https://www.youtube.com/watch?v=gx_Sx5FeTAk
