@@ -28,13 +28,15 @@ colorIndex++;
 
 function draw() {
     // boundry check x direction or width
-    if ((moveSpeedX > 0 && x > canvas.width - shapeWidth) || (moveSpeedX < 0 && x < 0)) {
+    if ((moveSpeedX > 0 && x > canvas.width - shapeWidth) ||
+        (moveSpeedX < 0 && x < 0)) {
         moveSpeedX = moveSpeedX * -1;
         colorIndex++;
         ctx.fillStyle = colors[colorIndex % 3];
     }
     // boundry check y direction or height
-    if ((moveSpeedY > 0 && y > canvas.height - shapeHeight) || (moveSpeedY < 0 && y < 0)) {
+    if ((moveSpeedY > 0 && y > canvas.height - shapeHeight) ||
+        (moveSpeedY < 0 && y < 0)) {
         moveSpeedY = moveSpeedY * -1;
         colorIndex++;
         ctx.fillStyle = colors[colorIndex % 3];
